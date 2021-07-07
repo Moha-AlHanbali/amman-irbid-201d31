@@ -4,6 +4,7 @@
 // Create an event listener so that when the delete link is clicked, the removeItemFromCart method is invoked.
 const table = document.getElementById('cart');
 table.addEventListener('click', removeItemFromCart);
+
 let cart;
 
 function loadCart() {
@@ -22,6 +23,7 @@ function renderCart() {
 function clearCart() {
   let tbody = document.getElementsByTagName('tbody')[0];
   tbody.textContent = '';
+  
 }
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
@@ -30,12 +32,19 @@ function showCart() {
 
   // TODO: Find the table body
   let tbody = document.getElementsByTagName('tbody')[0];
+  table.appendChild(tbody);
   // TODO: Iterate over the items in the cart
   
   for(let i= 0;i<cart.items.length;i++){
     let trEl = document.createElement('tr');
     let tdEl1 = document.createElement('td');
-    tdEl1.textContent = '✂';
+    let btnEl=document.createElement("button");
+    btnEl.textContent = '✂';
+    tdEl1.appendChild(btnEl);
+
+    trEl.setAttribute("id", cart.items[i].product);
+    trEl.addEventListener('click', removeItemFromCart);
+
     let tdEl2 = document.createElement('td');
     tdEl2.textContent = cart.items[i].quantity;
     
@@ -59,9 +68,21 @@ function showCart() {
 function removeItemFromCart(event) {
 
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
-  // TODO: Save the cart back to local storage
-  // TODO: Re-draw the cart table
+ for(let i=0; i<cart.items.length;i++){
+   if (cart.items[i].product === event.target.id){
+     cart.removeItem(cart.items[i]);
+   }
+ }
+  
 
+  // TODO: Save the cart back to local storage
+  // let cartContent = JSON.stringify(this.items);
+  // localStorage.setItem("cart",cartContent);
+  cart.saveToLocalStorage();
+  // TODO: Re-draw the cart table
+  renderCart();
+
+  // console.log("cart")
 }
 
 // This will initialize the page and draw the cart on screen
