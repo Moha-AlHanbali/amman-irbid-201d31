@@ -35,13 +35,19 @@ function showCart() {
   for(let i= 0;i<cart.items.length;i++){
     let trEl = document.createElement('tr');
     let tdEl1 = document.createElement('td');
+
+    /* Mohammed's - Conflict
     let button = document.createElement('button');
     button.textContent = '✂';
     button.setAttribute('id', [i])
     tdEl1.appendChild(button);
+    */
+
     let tdEl2 = document.createElement('td');
     tdEl2.textContent = cart.items[i].quantity;
-    
+
+   
+
     let tdEl3 = document.createElement('td');
     tdEl3.textContent = cart.items[i].product;
     trEl.appendChild(tdEl1);
@@ -60,6 +66,9 @@ function showCart() {
 
 
 function removeItemFromCart(event) {
+
+
+  /* Mohammed's - Conflict 
 
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -80,6 +89,8 @@ function removeItemFromCart(event) {
 
 
   renderCart()
+*/
+  
 }
 
 // This will initialize the page and draw the cart on screen
