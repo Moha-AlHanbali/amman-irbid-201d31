@@ -25,6 +25,6 @@ function handleCatSubmit(e) {
 
 function settingToLocalStorage() {
   let data = JSON.stringify(allCats);
-  console.log(data)
+  // console.log(data)
   localStorage.setItem('cats', data);
 }
