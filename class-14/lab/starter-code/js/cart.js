@@ -38,9 +38,24 @@ function showCart() {
   for(let i= 0;i<cart.items.length;i++){
     let trEl = document.createElement('tr');
     let tdEl1 = document.createElement('td');
-    let btnEl=document.createElement("button");
-    btnEl.textContent = '✂';
-    tdEl1.appendChild(btnEl);
+    
+
+    // /* Dua's Conflict
+    // let btnEl=document.createElement("button");
+    // btnEl.textContent = '✂';
+    // tdEl1.appendChild(btnEl);
+
+
+
+    // Mohammed's Conflict
+  
+    let button = document.createElement('button');
+    button.textContent = '✂';
+    button.setAttribute('id', [i])
+    tdEl1.appendChild(button);
+
+    //------------------------
+    
 
     trEl.setAttribute("id", cart.items[i].product);
     trEl.addEventListener('click', removeItemFromCart);
@@ -67,6 +82,7 @@ function showCart() {
 
 function removeItemFromCart(event) {
 
+/* Dua's Conflict
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
  for(let i=0; i<cart.items.length;i++){
    if (cart.items[i].product === event.target.id){
@@ -83,6 +99,36 @@ function removeItemFromCart(event) {
   renderCart();
 
   // console.log("cart")
+
+*/
+
+
+  // Mohammed's Conflict
+
+   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
+  let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  let buttonID = parseInt(event.target.id);
+
+  let newCartItems = cartItems.splice(buttonID,1)
+  // console.log(cartItems);
+  // console.log(newCartItems);
+
+  
+  // TODO: Save the cart back to local storage
+
+  let updatedcartContent = JSON.stringify(cartItems);
+  localStorage.setItem('cart', updatedcartContent);
+
+  // TODO: Re-draw the cart table'
+
+
+
+  renderCart()
+
+  //------------------------
+
+
+
 }
 
 // This will initialize the page and draw the cart on screen
