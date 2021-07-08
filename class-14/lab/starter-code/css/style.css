@@ -1,1 +1,48 @@
 /* TODO: Make it awesome */
+body {
+    background-color: rgb(172, 223, 223);
+    text-align: center;
+    font-size: larger;
+}
+ header h1{
+     font-size: 40px;
+
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
+
+ header{
+     background-color: rgb(51, 122, 122);
+ }
+ nav{
+     float:right;
+     padding:15px;
+ }
+ nav ul li {
+     font-size: 15px;
+
+ }
+ a{
+     text-decoration: none;
+     
+ }
+
+ fieldset {
+    font-family: sans-serif;
+    border: 5px solid  rgb(51, 122, 122);
+    background: #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+fieldset legend {
+    background: rgb(51, 122, 122) ;
+    color: #fff;
+    padding: 5px 10px ;
+    font-size: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px #ddd;
+    margin-left: 20px;
+}
+footer{
+    background-color: rgb(51, 122, 122);
+}
